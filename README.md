@@ -22,8 +22,8 @@ pod "RxAlamofire"
 
 ## Author
 
-Christoph Muck, christoph.muck@catalysts.cc
+Christoph Muck, muckz11@gmail.com
 
 ## License
 
-RxAlamofire is available under the MIT license. See the LICENSE file for more info.
+RxAlamofire is available under the Apache-2.0 license. See the LICENSE file for more info.

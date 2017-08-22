@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		0DCD4DDED323C1677C98EE8E /* Pods-RxAlamofire_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAlamofire_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxAlamofire_Tests/Pods-RxAlamofire_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		148810C22383E27DF030CC3D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		148810C22383E27DF030CC3D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1B54E736075E7F3BA66B37BC /* Pods_RxAlamofire_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxAlamofire_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FD69BB40619930C4196501 /* Pods_RxAlamofire_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxAlamofire_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* RxAlamofire_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxAlamofire_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,8 +42,8 @@
 		607FACE51AFB9204008FA782 /* RxAlamofire_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxAlamofire_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		652DA8075F0B42A0DAA4DB74 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		A5B7851083C661C699E8B629 /* RxAlamofire.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = RxAlamofire.podspec; path = ../RxAlamofire.podspec; sourceTree = "<group>"; };
+		652DA8075F0B42A0DAA4DB74 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A5B7851083C661C699E8B629 /* RxAlamofire.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RxAlamofire.podspec; path = ../RxAlamofire.podspec; sourceTree = "<group>"; };
 		AC72C263FF32D6D5E0E6B7B2 /* Pods-RxAlamofire_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAlamofire_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxAlamofire_Example/Pods-RxAlamofire_Example.release.xcconfig"; sourceTree = "<group>"; };
 		DF9B77F5A86294A4101D6FDA /* Pods-RxAlamofire_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAlamofire_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxAlamofire_Example/Pods-RxAlamofire_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F22B6CB4B679E0DE85CBA653 /* Pods-RxAlamofire_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxAlamofire_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxAlamofire_Tests/Pods-RxAlamofire_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -342,11 +342,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxAlamofire_Example/Pods-RxAlamofire_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -513,7 +517,7 @@
 				INFOPLIST_FILE = RxAlamofire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.d4m.RxAlamofire-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -527,7 +531,7 @@
 				INFOPLIST_FILE = RxAlamofire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.d4m.RxAlamofire-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -23,12 +23,12 @@ TODO: Add long description of the pod here.
 
   s.homepage         = 'https://github.com/Christoph Muck/RxAlamofire'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'Apache-2.0', :file => 'LICENSE' }
   s.author           = { 'Christoph Muck' => 'christoph.muck@catalysts.cc' }
   s.source           = { :git => 'https://github.com/Christoph Muck/RxAlamofire.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.3'
 
   s.source_files = 'RxAlamofire/Classes/**/*'
   
@@ -38,5 +38,6 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Alamofire', '~> 4.5'
+  s.dependency 'RxSwift', '4.0.0-alpha.1'
 end
