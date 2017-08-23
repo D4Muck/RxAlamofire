@@ -30,7 +30,9 @@ public class JsonRequestBody<N:Encodable>: RequestPayload {
     }
 
     public func applyTo(urlRequest: inout URLRequest) throws {
-        let data = try JSONEncoder().encode(self.payload)
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        let data = try encoder.encode(self.payload)
         urlRequest.httpBody = data
 
         if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {

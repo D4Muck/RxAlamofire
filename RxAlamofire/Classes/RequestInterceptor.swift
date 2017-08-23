@@ -12,7 +12,7 @@ public protocol HeaderAddingRequestInterceptor: RequestInterceptor {
 
 extension HeaderAddingRequestInterceptor {
     public func intercept(urlRequest: inout URLRequest) {
-        additionalHeaders.forEach { urlRequest.addValue($0.0, forHTTPHeaderField: $0.1) }
+        additionalHeaders.forEach { urlRequest.addValue($0.1, forHTTPHeaderField: $0.0) }
     }
 }
 

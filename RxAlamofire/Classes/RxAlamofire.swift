@@ -51,7 +51,10 @@ public class RequestMaker {
                 .map { (dataResponse: DefaultDataResponse) -> DefaultDataResponse in
                     guard let httpUrlResponse = dataResponse.response else { throw RxAlError.epicFailError }
 
-                    print(String(data: dataResponse.data ?? Data(), encoding: .utf8) ?? "")
+                    if (loggingEnabled) {
+                        print("Status Code: " + String(httpUrlResponse.statusCode))
+                        print(String(data: dataResponse.data ?? Data(), encoding: .utf8) ?? "")
+                    }
 
                     if (200..<300 ~= httpUrlResponse.statusCode) {
                         return dataResponse
