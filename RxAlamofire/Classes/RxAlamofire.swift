@@ -49,7 +49,7 @@ public class RequestMaker {
                 }
                 .flatMap(requestInternal)
                 .map { (dataResponse: DefaultDataResponse) -> DefaultDataResponse in
-                    guard let httpUrlResponse = dataResponse.response else { throw RxAlError.epicFailError }
+                    guard let httpUrlResponse = dataResponse.response else { throw dataResponse.error ?? RxAlError.epicFailError }
 
                     if (loggingEnabled) {
                         print("Status Code: " + String(httpUrlResponse.statusCode))
@@ -82,7 +82,9 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == DefaultDataRe
         return self.map { (response: DefaultDataResponse) -> R in
             guard let data = response.data else { throw RxAlError.noResponseBodyError }
             return try responseConverter.from(data: data)
-        }
+        }.do(onError: { e in
+            print(e)
+        })
     }
 
     public func decodeFromJson<R:Decodable>() -> Single<R> {
