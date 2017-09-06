@@ -5,7 +5,7 @@
 public class ResponseConverter<R> {
 
     func from(data: Data) throws -> R {
-        throw RxAlError.epicFailError
+        throw NetworkingError.codingError(message: "Method not overridden!", cause: nil)
     }
 }
 

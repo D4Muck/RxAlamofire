@@ -56,7 +56,7 @@ public class QueryParams: RequestPayload {
     }
 
     public func applyTo(urlRequest: inout URLRequest) throws {
-        guard let url = urlRequest.url else { throw RxAlError.urlMissingError }
+        guard let url = urlRequest.url else { throw NetworkingError.codingError(message: "Cannot apply parameters to url that's missing", cause: nil) }
 
         if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             let percentEncodedQuery = (urlComponents.percentEncodedQuery.map { $0 + "&" } ?? "") + self.query
